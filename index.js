@@ -9,7 +9,6 @@ const {
 	Animated,
 	ScrollView,
 	StyleSheet,
-	Platform,
 } = ReactNative;
 const TimerMixin = require('react-timer-mixin');
 
@@ -103,22 +102,10 @@ const ScrollableTabView = createReactClass({
 	},
 
 	goToPage(pageNumber) {
-		if (Platform.OS === 'ios') {
-			const offset = pageNumber * this.state.containerWidth;
-			if (this.scrollView) {
-				this.scrollView.scrollTo({x: offset, y: 0, animated: !this.props.scrollWithoutAnimation, });
-			}
-		} else {
-			if (this.scrollView) {
-				this.tabWillChangeWithoutGesture = true;
-				if (this.props.scrollWithoutAnimation) {
-					this.scrollView.setPageWithoutAnimation(pageNumber);
-				} else {
-					this.scrollView.setPage(pageNumber);
-				}
-			}
+		const offset = pageNumber * this.state.containerWidth;
+		if (this.scrollView) {
+			this.scrollView.scrollTo({ x: offset, y: 0, animated: !this.props.scrollWithoutAnimation, });
 		}
-
 		const currentPage = this.state.currentPage;
 		this.updateSceneKeys({
 			page: pageNumber,
