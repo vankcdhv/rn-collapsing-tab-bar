@@ -23,7 +23,7 @@
   "author": "Ashrith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vankcdhv/rn-collapsing-tab-bar.git"
+    "url": "https://github.com/vankcdhv/rn-collapsing-tab-bar/issues"
   },
   "peerDependencies": {
     "react-native": ">=0.20.0"
